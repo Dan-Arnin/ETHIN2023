@@ -93,10 +93,19 @@ https://templatemo.com/tm-571-hexashop
                 Name of model/dataset to be uploaded:
               </label>
               <input
-                type="email"
-                name="email"
+                type="Title"
+                name="title"
                 id="email"
-                placeholder="Enter name"
+                placeholder="Enter title"
+                class="formbold-form-input"
+              />
+              <br>
+              <br>
+              <input
+                type="Description"
+                name="desc"
+                id="email"
+                placeholder="Description"
                 class="formbold-form-input"
               />
             </div>
@@ -186,10 +195,14 @@ https://templatemo.com/tm-571-hexashop
 
     
       <script>
+
+        function uploadfile()
+        {
                 document.getElementById('uploadForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            var fileInput = document.getElementById('file');
+            var title = document.getElementById('title');
+            var desc = document.getElementById("description");
             var file = fileInput.files[0];
 
             var reader = new FileReader();
@@ -199,7 +212,7 @@ https://templatemo.com/tm-571-hexashop
                 alert('File content stored in local storage');
             };
             reader.readAsDataURL(file);
-        });
+        });}
       </script>
     
     

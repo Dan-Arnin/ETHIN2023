@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Idle</h2>
+    <button onClick="huddleClient.initialize('YOUR_PROJECT_ID')">
+      initialize()
+    </button>
+    <h2>Initialized</h2>
+    <button onClick="huddleClient.joinLobby('YOUR_ROOM_ID')">
+      joinLobby()
+    </button>
+    <h2>Lobby</h2>
+    <button id="fetchVideoStream">fetchVideoStream()</button>
+    <button onClick="huddleClient.fetchAudioStream()">
+      fetchAudioStream()
+    </button>
+    <button id="stopVideoStream">stopVideoStream()</button>
+    <button onClick="huddleClient.stopAudioStream()">stopAudioStream()</button>
+    <button onClick="huddleClient.joinRoom()">joinRoom()</button>
+    <button onClick="huddleClient.leaveLobby()">leaveLobby()</button>
+    <h2>Room</h2>
+    <button id="produceCam">produceCam()</button>
+    <button onClick="huddleClient.leaveRoom()">leaveRoom()</button>
+
+    <br />
+
+    <video id="my-video" autoplay muted></video>
+  </body>
+
+  <script src="https://unpkg.com/@huddle01/web-core@latest/dist/huddle01-web-core.umd.min.js"></script>
+
+  <script>
+    const videoElem = document.getElementById("my-video");
+    let camStream, micStream;
+
+    document.getElementById("fetchVideoStream").onclick = async () => {
+      const stream = await huddleClient.fetchVideoStream();
+
+      console.log({ stream });
+    };
+
+    huddleClient.on("lobby:cam-on", (stream) => {
+      console.log({ stream });
+      videoElem.srcObject = stream;
+
+      camStream = stream;
+
+      videoElem.onloadedmetadata = async () => {
+        console.warn("videoCard() | Metadata loaded...");
+        try {
+          await videoElem.play();
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      videoElem.onerror = () => {
+        console.error("videoCard() | Error is hapenning...");
+      };
+    });
+
+    document.getElementById("produceCam").onclick = async () => {
+      console.log({ camStream });
+
+      await huddleClient.produceCam(camStream);
+    };
+
+    console.log({ huddleClient });
+  </script>
+</html>
