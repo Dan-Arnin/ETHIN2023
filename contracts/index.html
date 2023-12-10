@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Web3 Interaction Page</title>
+    <!-- Include Web3 and ethers libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/5.0.17/ethers.min.js"></script>
+  </head>
+  <body>
+    <h1>Your Web3 Interaction Page</h1>
+    <!-- Button to trigger the p function -->
+    <button id="executeButton">Execute p Function</button>
+
+    <!-- Your JavaScript code -->
+    <script>
+      // Import the script containing the p function and dependencies
+      // Note: Update the path to the script if needed
+      const script = document.createElement("script");
+      script.src = "./index.js";
+      document.head.appendChild(script);
+
+      // Attach a click event listener to the button
+      document
+        .getElementById("executeButton")
+        .addEventListener("click", function () {
+          // Call the p function when the button is clicked
+          p();
+        });
+    </script>
+  </body>
+</html>
