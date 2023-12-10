@@ -27,7 +27,7 @@ The core smart contracts are are deployed in the collowing networks:
 1. Scroll sepolia test network
    - Deployed contract address 0x545506D72a7F3427dD94aB92a3E07b4c8972cb72
 
-   - Link -> https://sepolia.scrollscan.dev/address/0x545506D72a7F3427dD94aB92a3E07b4c8972cb72
+   - Link for the deployed contract -> https://sepolia.scrollscan.dev/address/0x545506D72a7F3427dD94aB92a3E07b4c8972cb72
 
 ![image](https://github.com/Dan-Arnin/ETHIN2023/assets/54409830/851e1c3c-affc-461c-a23d-e73c6d0bc127)
 
