@@ -23,7 +23,7 @@ Epochz uses the following key technologies:
 
 ## Smart Contracts
 
-The core smart contracts are are deployed in the collowing networks:
+The core smart contracts are are deployed in the collowing networks which carryout the purchase and distribution of ML models:
 1. Scroll sepolia test network
    - Deployed contract address 0x545506D72a7F3427dD94aB92a3E07b4c8972cb72
 
